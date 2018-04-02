@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>Longest Word Game</title>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  </head>
+  <body>
+    <h1>New Game</h1>
+    <ul class="list-inline">
+    <% @letters.each do |l| %>
+      <li><%= l %></li>
+    <% end %>
+    </ul>
+
+    <form action="/score" method="post">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :letters, @letters %>
+      <label for="word">What is the longest word you can find?</label>
+      <input class="form-control" type="text" name="word" placeholder="Type a word">
+      <input class="form-control" type="submit" value="Play">
+    </form>
+  </body>
+</html>
+
+
